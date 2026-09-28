@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -32,8 +33,15 @@ def fetch(url: str, dest: Path, min_bytes: int = 0) -> None:
         return
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(dest.suffix + ".part")
-    print(f"fetch  {dest.relative_to(ROOT)}")
-    urllib.request.urlretrieve(url, tmp)
+    print(f"fetch  {dest.relative_to(ROOT)}", flush=True)
+    for attempt in range(1, 4):
+        try:
+            urllib.request.urlretrieve(url, tmp)
+            break
+        except (urllib.error.ContentTooShortError, urllib.error.URLError, OSError) as err:
+            if attempt == 3:
+                raise
+            print(f"       retry {attempt} after: {err}", flush=True)
     size = tmp.stat().st_size
     if size <= min_bytes:
         tmp.unlink()
