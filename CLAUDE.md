@@ -30,6 +30,7 @@ python scripts/download_data.py          # all 10 games, about 380 MB, skips exi
 python scripts/download_data.py 114243   # one game (the test reference game)
 python scripts/build_all.py              # about 70 s: results, WAIMS exports, figures
 python -m pytest -q                      # 8 tests; the data tests skip if data/raw is missing
+streamlit run app.py                     # the app (reads exports/waims and assets/video only)
 python scripts/render_clip.py            # peak-minute MP4 (about 90 s); --stills N N to check frames as PNG
 ```
 
@@ -47,7 +48,7 @@ python scripts/render_clip.py            # peak-minute MP4 (about 90 s); --still
 * **Anonymize players in WAIMS exports** ("Player NN"). Full names stay in `data/interim/results/`.
 * **Keep WAIMS separate.** No WAIMS demo data in this repo, and no code here that WAIMS imports. WAIMS reads CSVs only.
 * **No em dashes or en dashes** in prose, comments, docstrings or chart labels. Use commas, colons, parentheses or new sentences.
-* **Video:** a dark palette (the dark-mode steps of the same colors). Check layout with `--stills` before a full render. MP4s stay gitignored.
+* **Video:** a dark palette (the dark-mode steps of the same colors). Check layout with `--stills` before a full render. Full-size MP4s in `exports/video` stay gitignored; compressed copies for the app go in `assets/video` (ffmpeg, CRF 27).
 * **Charts:** role colors are guard `#2a78d6`, wing `#eb6834`, big `#1baf7a`. Text uses ink colors, never series colors. No dual axes.
 
 ## Data gotchas (verified)

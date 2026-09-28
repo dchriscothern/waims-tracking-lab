@@ -1,0 +1,7 @@
+actor,coverage,mean_excess_speed,n,ci95
+ballhandler_def,over,0.553,1004,0.127
+ballhandler_def,switch,-0.34,218,0.247
+ballhandler_def,under,0.726,280,0.252
+screener_def,show,0.283,615,0.12
+screener_def,soft,-0.531,663,0.128
+screener_def,switch,-0.687,218,0.197

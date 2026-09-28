@@ -109,6 +109,7 @@ def main() -> None:
     ctx_mix.to_csv(RESULTS / "peak_window_context.csv", index=False)
 
     write_waims(pg, per, peaks, cost, matches, roster)
+    write_app_extras(meas, ctx_mix)
     viz.all_figures(pg, per, peaks, meas, sens, cost, ctx_mix, rl, ROOT / "exports" / "figures")
     print(f"actions per top-60s window by role: {per_window.round(1).to_dict()}")
     print(f"done in {time.time() - t0:.0f}s")
@@ -146,6 +147,20 @@ def write_waims(pg, per, peaks, cost, matches, roster) -> None:
         .groupby(["role", "period"])[["distance_per_min", "efforts_per_min"]].median()
     per_q.round(3).reset_index().to_csv(WAIMS / "role_by_quarter.csv", index=False)
     cost.round(3).to_csv(WAIMS / "action_cost.csv", index=False)
+
+
+def write_app_extras(meas, ctx_mix) -> None:
+    """Extra small tables for the Streamlit app (no player ids)."""
+    p = meas[(meas["action"] == "picks") & meas["actor"].isin(["ballhandler_def", "screener_def"])].dropna(
+        subset=["coverage"])
+    g = p.groupby(["actor", "coverage"])["excess_speed"].agg(["mean", "std", "size"]).reset_index()
+    g = g[g["size"] >= 20].rename(columns={"mean": "mean_excess_speed", "size": "n"})
+    g["ci95"] = 1.96 * g.pop("std") / np.sqrt(g["n"])
+    g.round(3).to_csv(WAIMS / "pick_coverage.csv", index=False)
+    ctx_mix.round(3).to_csv(WAIMS / "peak_context.csv", index=False)
+    d = meas[meas["action"] == "drives"].groupby(["actor", "blowby"])["excess_speed"].agg(["mean", "size"])
+    d.rename(columns={"mean": "mean_excess_speed", "size": "n"}).round(3).reset_index() \
+        .to_csv(WAIMS / "drive_blowby.csv", index=False)
 
 
 if __name__ == "__main__":

@@ -11,6 +11,8 @@ It also feeds real pro benchmarks into [WAIMS](#waims-integration).
 
 Built by Chris Cothern, PT, CSCS, CPSS. Data: [SkillCorner Open Data](https://github.com/SkillCorner/opendata-basketball) (MIT). Thanks to SkillCorner for releasing it.
 
+**Live app:** interactive version on Streamlit, with role benchmarks, action cost, a "compare your athlete" tool and the peak-minute videos. Run it locally with `streamlit run app.py`.
+
 ## Findings
 
 All values use running-clock time only (the game clock is live). Distances are in feet; meters are shown in brackets where useful. The sample is 192 player-games with at least 10 minutes each, from 174 players.
@@ -76,7 +78,7 @@ python scripts/render_clip.py --game 188630 --player 59161
 python scripts/render_clip.py --stills 80 800 1400     # check frames as PNGs, no MP4
 ```
 
-Videos are written to `exports/video/` (gitignored, about 13 MB each). They are sized for LinkedIn, the portfolio and Filmora edits.
+Videos are written to `exports/video/` (gitignored, about 13 MB each), sized for LinkedIn, the portfolio and Filmora edits. Compressed copies used by the app (about 1.6 MB each) live in `assets/video/`.
 
 ## How a performance staff would use this
 

@@ -1,0 +1,5 @@
+actor,blowby,mean_excess_speed,n
+ballhandler,False,4.809,511
+ballhandler,True,4.99,149
+ballhandler_def,False,2.249,511
+ballhandler_def,True,2.761,149
