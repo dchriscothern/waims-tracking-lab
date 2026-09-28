@@ -56,7 +56,20 @@ WAIMS reads only these files. Units are feet. Players are anonymized.
 
 Label the tab as SkillCorner ACB data, kept apart from the synthetic demo roster. Use the WAIMS UI conventions: 🟢🟡🔴, text status labels, horizontal fill bars.
 
-## 5. Backlog (in priority order)
+## 5. Video (built)
+
+`src/wtl/replay.py` plus `scripts/render_clip.py`. Output is a 1920x1080, 25 fps, H.264 MP4.
+
+* **Structure:** 3 s intro card, the peak minute in real time, 5 s outro card with a summary.
+* **Auto-pick:** among the role's fully live peak-60 s windows, the one with the highest score on intensity, efforts, action variety, and actions at both ends of the floor.
+* **Intro and outro cards** are drawn on their own figure, and the writer switches between figures. Figure-level text would otherwise draw over a cover axes.
+
+Ideas for more clips:
+* **Wing peak minute:** screen chasing and closeouts.
+* **Side-by-side pick coverage clip:** a switch vs going over.
+* **Short vertical cut (1080x1920)** for LinkedIn mobile.
+
+## 6. Backlog (in priority order)
 
 1. **WAIMS tab** (in the WAIMS repo), per section 4.
 2. **Portfolio case study page** (in the portfolio repo): problem, method, 3 figures (demands by role, action cost, peak context), "how a staff would use this", link to the GitHub repo.
@@ -65,6 +78,6 @@ Label the tab as SkillCorner ACB data, kept apart from the synthetic demo roster
 5. **Score and time context:** load in close games vs blowouts, and in the last 5 minutes. Use `possessions.homeStartScore` / `awayStartScore`.
 6. **Aggregates side project:** the 293-game shot, drive and pick aggregates could feed a WAIMS-GM scouting demo. Keep it out of this repo unless it uses the tracking data.
 
-## 6. Limitations to keep stated
+## 7. Limitations to keep stated
 
 About 17% of positions are extrapolated; players are held at z = 0 (no jump or contact load); effort counts depend on the filter (up to 14%); the sample is 10 games of ACB men's pro basketball, and transfer to other leagues is an assumption.

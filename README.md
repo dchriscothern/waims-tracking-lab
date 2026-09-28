@@ -56,6 +56,28 @@ Each value below is speed inside the action window minus the same player's own g
 
 ![Peak context](exports/figures/peak_context.png)
 
+## Video: peak minute replay
+
+`scripts/render_clip.py` turns a player's peak minute into a 1080p MP4 (68 s: intro, the minute in real time, outro). It shows:
+- A 2D court replay of all ten players and the ball. Hollow dots are positions estimated off-camera.
+- The focus player's speed trail.
+- Live speed, distance, pace against his own game average, and hard accelerations and decelerations.
+- A speed trace and the actions he takes part in as they happen.
+
+The auto-picked sample is a Barcelona guard in Q3 against Gran Canaria. In one minute he chases through two screens, guards an isolation and a drive, then receives a handoff, runs a pick and roll, cuts off a screen and drives to the rim. That adds up to:
+- **484 ft**, which is 31% above his own game pace
+- **10 hard efforts**, which is 2.4 times his game rate
+- a top speed of **20.3 ft/s**
+
+```powershell
+python scripts/render_clip.py                          # best guard peak minute
+python scripts/render_clip.py --role wing              # best wing
+python scripts/render_clip.py --game 188630 --player 59161
+python scripts/render_clip.py --stills 80 800 1400     # check frames as PNGs, no MP4
+```
+
+Videos are written to `exports/video/` (gitignored, about 13 MB each). They are sized for LinkedIn, the portfolio and Filmora edits.
+
 ## How a performance staff would use this
 
 - **Drill design by role.** Build conditioning blocks to the peak 60 s demand, not the game average. Put them into the actions that fill that minute: pick and drive work for guards, screen chasing and closeouts for wings.
@@ -107,7 +129,8 @@ src/wtl/
   roles.py    event-derived roles
   actions.py  load inside action windows
   viz.py      figures
-scripts/      download_data.py, build_all.py
+  replay.py   animated peak-minute MP4
+scripts/      download_data.py, build_all.py, render_clip.py
 exports/      waims/ (CSV for WAIMS), figures/ (PNG)
 data/         raw/ and interim/ (gitignored; full-detail results in data/interim/results)
 ```
