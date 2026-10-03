@@ -1,0 +1,9 @@
+period,n,release_time_s,lo,hi,shots
+1,95,0.8674,0.828,0.9092,catch_and_shoot_jumpers
+2,94,0.8,0.7702,0.8311,catch_and_shoot_jumpers
+3,80,0.828,0.8043,0.8543,catch_and_shoot_jumpers
+4,99,0.8376,0.767,0.9076,catch_and_shoot_jumpers
+1,174,2.5211,2.1392,2.9459,all_jumpers
+2,169,2.3051,1.983,2.6862,all_jumpers
+3,152,2.9479,2.2343,3.7315,all_jumpers
+4,173,2.6141,2.2877,2.9711,all_jumpers

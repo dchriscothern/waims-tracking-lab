@@ -1,0 +1,5 @@
+x,y,n,subjects,r,lo,hi,p,shots
+period,release_time,636,140,0.0502,-0.0379,0.1376,0.2637,all_jumpers
+period,release_time,311,99,-0.086,-0.2179,0.049,0.2113,catch_and_shoot_jumpers
+release_time,make_vs_expected,636,140,-0.0499,-0.1373,0.0382,0.2664,all_jumpers
+release_time,make_vs_expected,311,99,0.1083,-0.0265,0.2393,0.1149,catch_and_shoot_jumpers
