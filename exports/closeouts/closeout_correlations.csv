@@ -1,0 +1,15 @@
+x,y,n,rho,p
+dist_catch,hard_decels_75,512,0.032,0.4705
+dist_catch,peak_decel,512,-0.0094,0.8319
+dist_catch,speed_shed,512,0.0214,0.6298
+dist_catch,end_distance,512,0.6315,0.0
+dist_catch,def_dist_release,329,0.6757,0.0
+dist_catch,shot_quality,329,0.4873,0.0
+dist_catch,points,512,0.1443,0.0011
+lead_s,hard_decels_75,512,0.0736,0.096
+lead_s,peak_decel,512,0.0975,0.0274
+lead_s,speed_shed,512,0.093,0.0353
+lead_s,end_distance,512,-0.0083,0.8517
+lead_s,def_dist_release,329,0.0748,0.176
+lead_s,shot_quality,329,0.093,0.0921
+lead_s,points,512,-0.0492,0.2666

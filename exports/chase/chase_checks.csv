@@ -1,0 +1,12 @@
+metric,players,pearson,spearman
+chase_cost_ft_per_min,13.0,0.311,0.121
+chase_cost_decels_per_min,13.0,0.172,0.181
+gravity_ft,13.0,-0.193,-0.115
+chase_cost_on_ball_ft_per_min,13.0,0.59,0.599
+chase_cost_on_ball_decels_per_min,13.0,-0.13,0.005
+chase_cost_off_ball_ft_per_min,13.0,0.263,0.165
+chase_cost_off_ball_decels_per_min,13.0,-0.022,-0.071
+chase_vs_gravity_spearman,130.0,,0.053
+off_ball_chase_vs_gravity_spearman,130.0,,0.026
+on_vs_off_ball_chase_spearman,130.0,,-0.063
+gravity_model_r2,,0.228,
